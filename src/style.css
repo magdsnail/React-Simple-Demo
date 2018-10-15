@@ -1,0 +1,7 @@
+@charset "urf-8";
+.input{
+    border: 1px solid red;
+}
+.littlePointer{
+    cursor: pointer;
+}
