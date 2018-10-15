@@ -22,18 +22,29 @@ class TodoList extends Component {
   }
 
   handleBtnclick() {
-    this.setState({
-      list: [...this.state.list, this.state.inputValue],
+    this.setState((prevState) => ({
+      list: [...this.prevStatelist, prevState.inputValue],
       inputValue: ''
-    })
+    }));
+    // this.setState({
+    //   list: [...this.state.list, this.state.inputValue],
+    //   inputValue: ''
+    // })
   }
  
   handleItemDelete(index) {
-    const list = [...this.state.list];
-    list.splice(index, 1);
-    this.setState({
-      list
-    })
+    this.setState((prevState) => {
+      const list = [...prevState.list];
+      list.splice(index, 1);
+      return {
+        list
+      }
+    });
+    // const list = [...this.state.list];
+    // list.splice(index, 1);
+    // this.setState({
+    //   list
+    // })
   }
 
   getItem() {
