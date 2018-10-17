@@ -16,6 +16,7 @@ class TodoList extends Component {
 
   handleInputChange(e) {
     const value = e.target.value;
+    // const value = this.input.value;
     this.setState(() => ({
       inputValue: value
     }))
@@ -23,9 +24,12 @@ class TodoList extends Component {
 
   handleBtnclick() {
     this.setState((prevState) => ({
-      list: [...this.prevStatelist, prevState.inputValue],
+      list: [...prevState.list, prevState.inputValue],
       inputValue: ''
-    }));
+    }), () => {
+      console.log(this.ul.querySelectorAll('div').length);
+    });
+
     // this.setState({
     //   list: [...this.state.list, this.state.inputValue],
     //   inputValue: ''
@@ -73,10 +77,12 @@ class TodoList extends Component {
           <input id="insertArea" 
             className="input" 
             value={this.state.inputValue} 
-            onChange={this.handleInputChange}/>
+            onChange={this.handleInputChange}
+            ref={(input) => {this.input = input}}
+            />
           <button onClick={this.handleBtnclick} className="littlePointer">提交</button>
         </div>
-        <ul>
+        <ul ref={(ul) => {this.ul = ul}}>
           {this.getItem()}
         </ul>
       </Fragment>
