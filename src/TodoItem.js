@@ -12,6 +12,14 @@ class TodoItem extends Component {
         deleteItem(index);
     }
     
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.content !== this.props.content) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     render() {
         const { content, test } = this.props;
         return (

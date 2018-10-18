@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import TodoItem from './TodoItem';
+import axios from 'axios';
 import './style.css';
 
 class TodoList extends Component {
@@ -69,6 +70,20 @@ class TodoList extends Component {
   //onClick={this.handleItemDelete.bind(this, index)} 
   //dangerouslySetInnerHTML={{__html: item}} > 
   //</li>
+
+  componentDidMount() {
+    axios.get('http://127.0.0.1:8080/manage/list')
+      .then((res) => {
+        this.setState(() => ({
+          list: [...res.data]
+        })
+        );
+      })
+      .catch((err) => {
+        alert('error');
+    })
+  }
+
   render() {
     return (
       <Fragment>
