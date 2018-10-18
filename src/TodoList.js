@@ -71,6 +71,7 @@ class TodoList extends Component {
   //dangerouslySetInnerHTML={{__html: item}} > 
   //</li>
 
+  //调用接口
   componentDidMount() {
     axios.get('http://127.0.0.1:8080/manage/list')
       .then((res) => {
