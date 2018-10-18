@@ -70,7 +70,7 @@ class TodoList extends Component {
   //onClick={this.handleItemDelete.bind(this, index)} 
   //dangerouslySetInnerHTML={{__html: item}} > 
   //</li>
-
+  
   //调用接口
   componentDidMount() {
     axios.get('http://127.0.0.1:8080/manage/list')
