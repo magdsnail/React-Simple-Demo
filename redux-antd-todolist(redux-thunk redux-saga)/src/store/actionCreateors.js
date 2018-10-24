@@ -19,15 +19,15 @@ export const initListAction = (data) => ({
 	data
 })
 
-/* export const getTodoList = () => {
-	return (dispatch) => {
-		axios.get('http://127.0.0.1:8080/manage/list')
-		.then((res) => {
-			const action = initListAction(res.data);
-			dispatch(action);
-		})
-	}
-} */
+// export const getTodoList = () => {
+// 	return (dispatch) => {
+// 		axios.get('http://127.0.0.1:8080/manage/list')
+// 		.then((res) => {
+// 			const action = initListAction(res.data);
+// 			dispatch(action);
+// 		})
+// 	}
+// } 
 
 export const getInitList = () => ({
 	type: GET_INIT_LIST
